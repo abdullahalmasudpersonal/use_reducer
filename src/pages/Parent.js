@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Child from './Child';
 import './Style.css';
+import { COUNTER_CONTEXT } from '../App';
 
 const Parent = () => {
-    const [count, setCount] = useState(0);
+   const {count} = useContext(COUNTER_CONTEXT);
 
     return (
         <div>
@@ -28,7 +29,7 @@ const Parent = () => {
                     </div>
                 </div>
                 
-                <Child count={count} setCount={setCount} />
+                <Child />
             </div>
         </div>
     );
