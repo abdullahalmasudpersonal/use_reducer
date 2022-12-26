@@ -3,10 +3,19 @@ import './Style.css';
 
 const ShortForm = () => {
     const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const submit = (event) =>{
         event.preventDefault();
-        console.log(firstName);
+        const data = {
+            firstName,
+            lastName,
+            email,
+            password
+        }
+        console.log(data);
     }
 
     return (
@@ -17,16 +26,16 @@ const ShortForm = () => {
                     <input type='text' name='name' id='name' onBlur={(e) => setFirstName(e.target.value)} />
                 </div>
                 <div>
-                    <label>Lust Name</label> <br/>
-                    <input type='text' name='name' id='name' onBlur={(e) => setFirstName(e.target.value)} />
+                    <label>Last Name</label> <br/>
+                    <input type='text' name='name' id='name' onBlur={(e) => setLastName(e.target.value)} />
                 </div>
                 <div>
                     <label>Email</label> <br/>
-                    <input type='text' name='name' id='name' onBlur={(e) => setFirstName(e.target.value)} />
+                    <input type='text' name='name' id='name' onBlur={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
                     <label>Password</label> <br/>
-                    <input type='password' name='name' id='name' onBlur={(e) => setFirstName(e.target.value)} />
+                    <input type='password' name='name' id='name' onBlur={(e) => setPassword(e.target.value)} />
                 </div>
                 <button type='submit'>
                     Submit
