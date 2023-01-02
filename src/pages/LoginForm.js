@@ -3,26 +3,26 @@ import { initialState, reducer } from './FormReducer';
 import './LoginForm.css';
 
 const LoginForm = () => {
-    /* const initialState = {
+    const initialState = {
         firstName: '',
         lustName: '',
         email: '',
         gender: '',
         education: '',
-        quantity: 1,
+        quantity: 0,
         feedback: '',
         term: true
     };
- */
-/*     const reducer = (state, action) => { */
-        //  console.log(action)
-      /*   switch (action.type) {
+
+    const reducer = (state, action) => {
+        // console.log(action)
+         switch (action.type) {
             case 'INPUT':
                 return {
                     ...state,
                     [action.payload.name]: action.payload.value,
                 };
-            case 'TOGGLE':
+         /*    case 'TOGGLE':
                 return {
                     ...state,
                     term: !state.term,
@@ -30,19 +30,19 @@ const LoginForm = () => {
             case 'DECREMENT':
                 return {
                     ...state,
-                   [action.payload.name]: state - action.payload.value
-                };
+                    [action.payload.name]: state - action.payload.value
+                }; */
             default:
                 return state;
-        } */
+        } 
 
-        /*     if(action.type === 'INPUT'){
-                return{
-                    ...state,
-                    [action.payload.name] : action.payload.value,
-                };
-            }; */
-   /*  }; */
+         /*  if (action.type === 'INPUT') {
+              return {
+                  ...state,
+                  [action.payload.name]: action.payload.value,
+              };
+          }; */
+    };
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -62,17 +62,17 @@ const LoginForm = () => {
                             <label>First Name</label><br />
                             <input type='text' name='firstName'
                                 id='firstName'
-                                onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
+                                onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
                         </div>
                         <div>
                             <label>Last Name</label ><br />
-                            <input type='text' name='lustName' onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
+                            <input type='text' name='lustName' onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
                         </div>
                     </div>
                     <div className='d-flex justify-content-between'>
                         <div>
                             <label>Email</label><br />
-                            <input type='email' name='email' onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
+                            <input type='email' name='email' onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />
                         </div>
                         <div>
                             <h6>Gender</h6>
@@ -80,18 +80,18 @@ const LoginForm = () => {
                                 <div>
                                     <input type='radio' name='gender'
                                         value='male'
-                                        onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
+                                        onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
                                     <label>Male</label>
                                 </div>
                                 <div>
                                     <input type='radio' name='gender'
-                                        value='female' onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
+                                        value='female' onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
                                     <label>Female</label>
                                 </div>
                                 <div>
                                     <input type='radio' name='gender'
                                         value='other'
-                                        onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
+                                        onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} />&ensp;
                                     <label>Other</label>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@ const LoginForm = () => {
                         <div>
                             <h6>Number of PCs</h6>
                             <div>
-                                <button className='decrement' onBlur={() => dispatch({type:"DECREMENT", payload:5})}>-</button>
+                                <button className='decrement' onClick={() => dispatch({ type: "DECREMENT", payload: 5 })}>-</button>
 
                                 <input name='quantity' ></input>
 
@@ -122,14 +122,14 @@ const LoginForm = () => {
 
                     <div>
                         <h6>Feedback</h6>
-                        <textarea name='feedback' onBlur={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} ></textarea>
+                        <textarea name='feedback' onClick={(e) => dispatch({ type: 'INPUT', payload: { name: e.target.name, value: e.target.value }, })} ></textarea>
                     </div>
                     <div className='d-flex justify-content-between'>
                         <p>
-                            <input type="checkbox" name='term' onClick={() => dispatch({ type: 'TOGGLE' })} /> &ensp;
-                            <label><small>I agree to terms and conditions</small></label>
+                        {/*     <input type="checkbox" name='term' onBlur={() => dispatch({ type: 'TOGGLE' })} /> &ensp;
+                            <label><small>I agree to terms and conditions</small></label> */}
                         </p>
-                        <input type='submit' value='Submit' disabled={state.term} />
+                        <input type='submit' value='Submit' /* disabled={state.term} */ />
                     </div>
                 </form>
             </div>
